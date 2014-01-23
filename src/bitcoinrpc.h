@@ -1,8 +1,9 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2013 Primecoin developers
-// Distributed under conditional MIT/X11 software license,
-// see the accompanying file COPYING
+// Copyright (c) 2014 Librecoin developers
+// Distributed under the GPLv3 software license, see the accompanying
+// file COPYING or https://www.gnu.org/licenses/gpl-3.0.html.
 
 #ifndef _BITCOINRPC_H_
 #define _BITCOINRPC_H_ 1

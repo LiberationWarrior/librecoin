@@ -1,19 +1,32 @@
-Primecoin High Performance Version
-==================================
+Librecoin
+=========
 
-This is the high performance version of Sunny King's Primecoin tree.
+Intro
+-----
 
-Features:
+Librecoin is the first scientific cryptocurrency that is released under the GNU
+General Public License. Librecoin uses Primecoin's proof-of-work, which
+provides potential scientific value in addition to minting and security for the
+network. Similar to Bitcoin and Primecoin, Librecoin enables instant payments
+to anyone, anywhere in the world. It also uses peer-to-peer technology to
+operate with no central authority: managing transactions and issuing money are
+carried out collectively by the network. Librecoin is also the name of the open
+source software which enables the use of this currency.
+
+License
+-------
+
+Librecoin is released under the GPLv3 (version 3 of the GNU General Public
+License). See COPYING and https://www.gnu.org/licenses/gpl-3.0.html for more
+information.
+
+Features
+--------
+
  * Extended sieve algorithm
  * Cache-friendly segmented sieve
  * Adjustable sieve parameters
  * Mining threads use GMP for faster bignum arithmetic
-
-Donations are welcome if you want to support my work.
-
-BTC: 1EaHwHBWeoJtSM2jEdx9Su1NcKvdXbsqxX
-LTC: LPD1zDChmqcqKGHFHuLX2JWMMEC5jD5J4j
-XPM: AJHjbkVzHhHugd5bpKDtddVDfhtEB8jQZ4
 
 Sieve parameters
 ----------------
@@ -117,3 +130,4 @@ process can take anywhere from a few hours to a day or more.
 See the bitcoin wiki at:
   https://en.bitcoin.it/wiki/Main_Page
 for more help and information.
+

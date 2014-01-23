@@ -17,13 +17,13 @@
         <source>
 This is experimental software.
 
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
+Distributed under the GPLv3 software license, see the accompanying file COPYING or https://www.gnu.org/licenses/gpl-3.0.html.
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
         <translation>
 Це програмне забезпечення є експериментальним.
 
-Поширюється за ліцензією MIT/X11, додаткова інформація міститься у файлі COPYING, а також за адресою http://www.opensource.org/licenses/mit-license.php.
+Поширюється за ліцензією GPLv3, додаткова інформація міститься у файлі COPYING, а також за адресою https://www.gnu.org/licenses/gpl-3.0.html.
 
 Цей продукт включає в себе програмне забезпечення, розроблене в рамках проекту OpenSSL (http://www.openssl.org/), криптографічне програмне забезпечення, написане Еріком Янгом (eay@cryptsoft.com), та функції для роботи з UPnP, написані Томасом Бернардом.</translation>
     </message>

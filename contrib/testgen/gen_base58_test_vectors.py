@@ -7,7 +7,9 @@ Usage:
     gen_base58_test_vectors.py invalid 50 > ../../src/test/data/base58_keys_invalid.json
 '''
 # 2012 Wladimir J. van der Laan
-# Released under MIT License
+# Copyright (c) 2014 Librecoin developers
+# Distributed under the GPLv3 software license, see the accompanying
+# file COPYING or https://www.gnu.org/licenses/gpl-3.0.html.
 import os
 from itertools import islice
 from base58 import b58encode, b58decode, b58encode_chk, b58decode_chk, b58chars

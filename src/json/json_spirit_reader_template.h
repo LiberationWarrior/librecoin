@@ -2,7 +2,9 @@
 #define JSON_SPIRIT_READER_TEMPLATE
 
 //          Copyright John W. Wilkinson 2007 - 2009.
-// Distributed under the MIT License, see accompanying file LICENSE.txt
+// Copyright (c) 2014 Librecoin developers
+// Distributed under the GPLv3 software license, see the accompanying
+// file COPYING or https://www.gnu.org/licenses/gpl-3.0.html.
 
 // json spirit version 4.03
 

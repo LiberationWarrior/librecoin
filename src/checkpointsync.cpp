@@ -1,7 +1,8 @@
 // Copyright (c) 2012-2013 PPCoin developers
 // Copyright (c) 2013 Primecoin developers
-// Distributed under conditional MIT/X11 software license,
-// see the accompanying file COPYING
+// Copyright (c) 2014 Librecoin developers
+// Distributed under the GPLv3 software license, see the accompanying
+// file COPYING or https://www.gnu.org/licenses/gpl-3.0.html.
 //
 // The synchronized checkpoint system is first developed by Sunny King for
 // ppcoin network in 2012, giving cryptocurrency developers a tool to gain

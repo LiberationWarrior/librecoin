@@ -17,12 +17,12 @@
         <source>
 This is experimental software.
 
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
+Distributed under the GPLv3 software license, see the accompanying file COPYING or https://www.gnu.org/licenses/gpl-3.0.html.
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
         <translation>Tai eksperimentinė programa.
 
-Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.opensource.org/licenses/mit-license.php.
+Platinama pagal GPLv3 licenciją, kurią rasite faile COPYING arba https://www.gnu.org/licenses/gpl-3.0.html.
 
 Šiame produkte yra OpenSSL projekto kuriamas OpenSSL Toolkit (http://www.openssl.org/), Eric Young parašyta kriptografinė programinė įranga bei Thomas Bernard sukurta UPnP programinė įranga.</translation>
     </message>
