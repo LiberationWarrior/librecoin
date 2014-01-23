@@ -28,8 +28,8 @@ UI_DIR = build
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
     # Mac: compile for maximum compatibility (10.5, 32-bit)
-    # Primecoin HP: support both i386 and x86_64 for best performance and compatibility
-    # Primecoin HP: require 10.6 at the minimum
+    # Librecoin HP: support both i386 and x86_64 for best performance and compatibility
+    # Librecoin HP: require 10.6 at the minimum
     macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.6 -arch i386 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk
     macx:QMAKE_CFLAGS += -mmacosx-version-min=10.6 -arch i386 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk
     macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.6 -arch i386 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk
@@ -44,7 +44,7 @@ contains(RELEASE, 1) {
 }
 
 macx {
-    # Primecoin HP: Always optimize on OS X
+    # Librecoin HP: Always optimize on OS X
     QMAKE_CXXFLAGS += -O2
     QMAKE_CFLAGS += -O2
     QMAKE_OBJECTIVE_CFLAGS += -O2
@@ -415,7 +415,7 @@ macx:HEADERS += src/qt/macdockiconhandler.h
 macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
-macx:ICON = src/qt/res/icons/primecoin.icns
+macx:ICON = src/qt/res/icons/librecoin.icns
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread

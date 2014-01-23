@@ -14,7 +14,7 @@
 // Set to true for release, false for prerelease or test build
 #define CLIENT_VERSION_IS_RELEASE  true
 
-// primecoin client version - intended for display purpose ONLY
+// librecoin client version - intended for display purpose ONLY
 #define LIBRECOIN_VERSION_MAJOR       0
 #define LIBRECOIN_VERSION_MINOR       1
 #define LIBRECOIN_VERSION_REVISION    2

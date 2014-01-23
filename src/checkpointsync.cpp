@@ -8,7 +8,7 @@
 // ppcoin network in 2012, giving cryptocurrency developers a tool to gain
 // additional network protection against 51% attack.
 //
-// Primecoin also adopts this security mechanism, and the enforcement of
+// Librecoin also adopts this security mechanism, and the enforcement of
 // checkpoints is explicitly granted by user, thus granting only temporary
 // consensual central control to developer at the threats of 51% attack.
 //
