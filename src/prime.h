@@ -3,8 +3,8 @@
 // Distributed under the GPLv3 software license, see the accompanying
 // file COPYING or https://www.gnu.org/licenses/gpl-3.0.html.
 
-#ifndef PRIMECOIN_PRIME_H
-#define PRIMECOIN_PRIME_H
+#ifndef LIBRECOIN_PRIME_H
+#define LIBRECOIN_PRIME_H
 
 #include "main.h"
 
@@ -14,7 +14,7 @@
 #include <boost/timer/timer.hpp>
 
 /**********************/
-/* PRIMECOIN PROTOCOL */
+/* LIBRECOIN PROTOCOL */
 /**********************/
 
 extern std::vector<unsigned int> vPrimes;
@@ -127,7 +127,7 @@ std::string GetPrimeOriginPrimorialForm(CBigNum& bnPrimeChainOrigin);
 
 
 /********************/
-/* PRIMECOIN MINING */
+/* LIBRECOIN MINING */
 /********************/
 
 class CSieveOfEratosthenes;

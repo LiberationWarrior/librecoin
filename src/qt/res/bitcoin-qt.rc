@@ -1,14 +1,14 @@
-IDI_ICON1 ICON DISCARDABLE "icons/primecoin.ico"
-IDI_ICON2 ICON DISCARDABLE "icons/primecoin-testnet.ico"
+IDI_ICON1 ICON DISCARDABLE "icons/librecoin.ico"
+IDI_ICON2 ICON DISCARDABLE "icons/librecoin-testnet.ico"
 
 #include <windows.h>             // needed for VERSIONINFO
 #include "../../clientversion.h" // holds the needed client version information
 
-#define VER_PRODUCTVERSION     PRIMECOIN_VERSION_MAJOR,PRIMECOIN_VERSION_MINOR,PRIMECOIN_VERSION_REVISION,PRIMECOIN_VERSION_BUILD
-#define VER_PRODUCTVERSION_STR STRINGIZE(PRIMECOIN_VERSION_MAJOR) "." STRINGIZE(PRIMECOIN_VERSION_MINOR) "." STRINGIZE(PRIMECOIN_VERSION_REVISION) "." STRINGIZE(PRIMECOIN_VERSION_BUILD)
+#define VER_PRODUCTVERSION     LIBRECOIN_VERSION_MAJOR,LIBRECOIN_VERSION_MINOR,LIBRECOIN_VERSION_REVISION,LIBRECOIN_VERSION_BUILD
+#define VER_PRODUCTVERSION_STR STRINGIZE(LIBRECOIN_VERSION_MAJOR) "." STRINGIZE(LIBRECOIN_VERSION_MINOR) "." STRINGIZE(LIBRECOIN_VERSION_REVISION) "." STRINGIZE(LIBRECOIN_VERSION_BUILD)
 #define VER_FILEVERSION        VER_PRODUCTVERSION
 #define VER_FILEVERSION_STR    VER_PRODUCTVERSION_STR
-#define COPYRIGHT_STR          "2013-" STRINGIZE(COPYRIGHT_YEAR) " The Primecoin developers"
+#define COPYRIGHT_STR          "2014-" STRINGIZE(COPYRIGHT_YEAR) " The Librecoin developers"
 
 VS_VERSION_INFO VERSIONINFO
 FILEVERSION     VER_FILEVERSION
@@ -20,14 +20,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Primecoin"
-            VALUE "FileDescription",    "Primecoin-Qt (OSS GUI client for Primecoin)"
+            VALUE "CompanyName",        "Librecoin"
+            VALUE "FileDescription",    "Librecoin-Qt (OSS GUI client for Librecoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "primecoin-qt"
+            VALUE "InternalName",       "librecoin-qt"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the GPLv3 software license, see the accompanying file COPYING or https://www.gnu.org/licenses/gpl-3.0.html."
-            VALUE "OriginalFilename",   "primecoin-qt.exe"
-            VALUE "ProductName",        "Primecoin-Qt"
+            VALUE "OriginalFilename",   "librecoin-qt.exe"
+            VALUE "ProductName",        "Librecoin-Qt"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

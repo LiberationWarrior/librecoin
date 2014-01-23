@@ -68,7 +68,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Primecoin Signed Message:\n";
+const string strMessageMagic = "Librecoin Signed Message:\n";
 
 double dPrimesPerSec = 0.0;
 double dChainsPerDay = 0.0;
@@ -1085,8 +1085,8 @@ int64 static GetBlockValue(int nBits, int64 nFees)
     return ((int64)nSubsidy) + nFees;
 }
 
-static const int64 nTargetTimespan = 7 * 24 * 60 * 60; // one week
-static const int64 nTargetSpacing = 60; // one minute block spacing
+static const int64 nTargetTimespan = 7 * 24 * 60 * 60 * 2; // one week
+static const int64 nTargetSpacing = 30; // 30 seconds block spacing
 
 //
 // minimum amount of work that could possibly be required nTime after
@@ -1094,7 +1094,7 @@ static const int64 nTargetSpacing = 60; // one minute block spacing
 //
 unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
 {
-    // primecoin: min work for orphan block takes min work for now
+    // librecoin: min work for orphan block takes min work for now
     TargetSetLength(nTargetMinLength, nBase);
     return nBase;
 }
@@ -1114,7 +1114,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
     if (pindexPrevPrev->pprev == NULL)
         return TargetGetInitial(); // second block
 
-    // Primecoin: continuous target adjustment on every block
+    // Librecoin: continuous target adjustment on every block
     int64 nInterval = nTargetTimespan / nTargetSpacing;
     int64 nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
     if (!TargetGetNext(pindexPrev->nBits, nInterval, nTargetSpacing, nActualSpacing, nBits))
@@ -1535,7 +1535,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("primecoin-scriptch");
+    RenameThread("librecoin-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -1650,7 +1650,7 @@ bool CBlock::ConnectBlock(CValidationState &state, CBlockIndex* pindex, CCoinsVi
 
     if (!fJustCheck)
     {
-        // primecoin: track money supply
+        // librecoin: track money supply
         pindex->nMoneySupply = (pindex->pprev? pindex->pprev->nMoneySupply : 0) + nValueOut - nValueIn;
         CDiskBlockIndex blockindex(pindex);
         if (!pblocktree->WriteBlockIndex(blockindex))
@@ -2074,7 +2074,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
             return error("CheckBlock() : 15 May maxlocks violation");
     }
 
-    // Primecoin: proof of work is checked in ProcessBlock()
+    // Librecoin: proof of work is checked in ProcessBlock()
 
     // Check timestamp
     if (GetBlockTime() > GetAdjustedTime() + 2 * 60 * 60)
@@ -2160,7 +2160,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
             && !CheckSyncCheckpoint(hash, pindexPrev))
             return error("AcceptBlock() : rejected by synchronized checkpoint");
 
-        // Primecoin: block version starts from 2
+        // Librecoin: block version starts from 2
         if (nVersion < 2)
             return state.Invalid(error("AcceptBlock() : rejected nVersion=1 block"));
         // Enforce block.nVersion=2 rule that the coinbase starts with serialized block height
@@ -2214,7 +2214,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
 // Get block work value for main chain protocol
 CBigNum CBlockIndex::GetBlockWork() const
 {
-    // Primecoin: 
+    // Librecoin: 
     // Difficulty multiplier of extra prime is estimated by nWorkTransitionRatio
     // Difficulty multiplier of fractional is estimated by
     //   r = 1/TransitionRatio
@@ -2738,11 +2738,11 @@ bool LoadBlockIndex()
         pchMessageStart[2] = 0xcb;
         pchMessageStart[3] = 0xc3;
         hashGenesisBlock = hashGenesisBlockTestNet;
-        nTargetInitialLength = 5; // primecoin: initial prime chain target
-        nTargetMinLength = 2;     // primecoin: minimum prime chain target
+        nTargetInitialLength = 5; // librecoin: initial prime chain target
+        nTargetMinLength = 2;     // librecoin: minimum prime chain target
     }
 
-    // Primecoin: Generate prime table when starting up
+    // Librecoin: Generate prime table when starting up
     GeneratePrimeTable();
     InitPrimeMiner();
 
@@ -4186,7 +4186,7 @@ void SHA256Transform(void* pstate, void* pinput, const void* pinit)
 // between calls, but periodically or if nNonce is 0xffff0000 or above,
 // the block is rebuilt and nNonce starts over at zero.
 //
-// Primecoin: ScanHash is not needed for primecoin
+// Librecoin: ScanHash is not needed for librecoin
 
 
 // Some explaining would be appreciated
@@ -4558,10 +4558,10 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     CBigNum bnTarget = CBigNum().SetCompact(pblock->nBits);
 
     if (!CheckProofOfWork(pblock->GetHeaderHash(), pblock->nBits, pblock->bnPrimeChainMultiplier, pblock->nPrimeChainType, pblock->nPrimeChainLength))
-        return error("PrimecoinMiner : failed proof-of-work check");
+        return error("LibrecoinMiner : failed proof-of-work check");
 
     //// debug print
-    printf("PrimecoinMiner:\n");
+    printf("LibrecoinMiner:\n");
     printf("proof-of-work found  \n  target: %s\n  multiplier: %s\n  ", TargetToString(pblock->nBits).c_str(), pblock->bnPrimeChainMultiplier.GetHex().c_str());
     pblock->print();
     printf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
@@ -4570,7 +4570,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != hashBestChain)
-            return error("PrimecoinMiner : generated block is stale");
+            return error("LibrecoinMiner : generated block is stale");
 
         // Remove key from key pool
         reservekey.KeepKey();
@@ -4584,7 +4584,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         // Process this block the same as if we had received it from another node
         CValidationState state;
         if (!ProcessBlock(state, NULL, pblock))
-            return error("PrimecoinMiner : ProcessBlock, block not accepted");
+            return error("LibrecoinMiner : ProcessBlock, block not accepted");
     }
 
     return true;
@@ -4595,9 +4595,9 @@ void static BitcoinMiner(CWallet *pwallet)
     static CCriticalSection cs;
     static bool fTimerStarted = false;
     bool fPrintStatsAtEnd = false;
-    printf("PrimecoinMiner started\n");
+    printf("LibrecoinMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("primecoin-miner");
+    RenameThread("librecoin-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -4612,7 +4612,7 @@ void static BitcoinMiner(CWallet *pwallet)
     double dAverageBlockExpectedPrev = 0.0; // previous average expected blocks per second
     unsigned int nPrimorialMultiplierPrev = nPrimorialMultiplier; // previous primorial factor
 
-    // Primecoin: Check if a fixed primorial was requested
+    // Librecoin: Check if a fixed primorial was requested
     unsigned int nFixedPrimorial = (unsigned int)GetArg("-primorial", 0);
     if (nFixedPrimorial > 0)
     {
@@ -4620,10 +4620,10 @@ void static BitcoinMiner(CWallet *pwallet)
         nPrimorialMultiplier = nFixedPrimorial;
     }
 
-    // Primecoin: Allow choosing the mining protocol version
+    // Librecoin: Allow choosing the mining protocol version
     unsigned int nMiningProtocol = (unsigned int)GetArg("-miningprotocol", 1);
 
-    // Primecoin: Allocate data structures for mining
+    // Librecoin: Allocate data structures for mining
     CSieveOfEratosthenes sieve;
     CPrimalityTestParams testParams;
 
@@ -4673,7 +4673,7 @@ void static BitcoinMiner(CWallet *pwallet)
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce, true);
 
         if (fDebug && GetBoolArg("-printmining"))
-            printf("Running PrimecoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
+            printf("Running LibrecoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
@@ -4682,7 +4682,7 @@ void static BitcoinMiner(CWallet *pwallet)
         int64 nStart = GetTime();
         bool fNewBlock = true;
 
-        // Primecoin: try to find hash divisible by primorial
+        // Librecoin: try to find hash divisible by primorial
         unsigned int nHashFactor = PrimorialFast(nPrimorialHashFactor);
 
         mpz_class mpzHash;
@@ -4698,12 +4698,12 @@ void static BitcoinMiner(CWallet *pwallet)
 
             mpz_set_uint256(mpzHash.get_mpz_t(), phash);
             if (nMiningProtocol >= 2) {
-                // Primecoin: Mining protocol v0.2
+                // Librecoin: Mining protocol v0.2
                 // Try to find hash that is probable prime
                 if (!ProbablePrimalityTestWithTrialDivision(mpzHash, 1000, testParams))
                     continue;
             } else {
-                // Primecoin: Check that the hash is divisible by the fixed primorial
+                // Librecoin: Check that the hash is divisible by the fixed primorial
                 if (!mpz_divisible_ui_p(mpzHash.get_mpz_t(), nHashFactor))
                     continue;
             }
@@ -4713,7 +4713,7 @@ void static BitcoinMiner(CWallet *pwallet)
         }
         if (pblock->nNonce >= 0xffff0000)
             continue;
-        // Primecoin: primorial fixed multiplier
+        // Librecoin: primorial fixed multiplier
         mpz_class mpzPrimorial;
         mpz_class mpzFixedMultiplier;
         unsigned int nRoundTests = 0;
@@ -4747,7 +4747,7 @@ void static BitcoinMiner(CWallet *pwallet)
                     vFoundChainCounter[i] = 0;
             }
 
-            // Primecoin: Mining protocol v0.2
+            // Librecoin: Mining protocol v0.2
             if (nMiningProtocol >= 2)
                 mpzFixedMultiplier = mpzPrimorial;
             else
@@ -4758,7 +4758,7 @@ void static BitcoinMiner(CWallet *pwallet)
                     mpzFixedMultiplier = 1;
             }
 
-            // Primecoin: mine for prime chain
+            // Librecoin: mine for prime chain
             if (MineProbablePrimeChain(*pblock, mpzFixedMultiplier, fNewBlock, nTests, nPrimesHit, mpzHash, pindexPrev, vChainsFound, sieve, testParams))
             {
                 SetThreadPriority(THREAD_PRIORITY_NORMAL);
@@ -4833,8 +4833,8 @@ void static BitcoinMiner(CWallet *pwallet)
                 break;
             if (fNewBlock)
             {
-                // Primecoin: a sieve+primality round completes
-                // Primecoin: estimate time to block
+                // Librecoin: a sieve+primality round completes
+                // Librecoin: estimate time to block
                 unsigned int nCalcRoundTests = max(1u, nRoundTests);
                 // Make sure the estimated time is very high if only 0 primes were found
                 if (nRoundPrimesHit == 0)
@@ -4884,7 +4884,7 @@ void static BitcoinMiner(CWallet *pwallet)
                     else
                         nAdjustPrimorial = (nPrimorialMultiplier >= nPrimorialMultiplierPrev) ? -1 : 1;
                     if (fDebug && GetBoolArg("-printprimorial"))
-                        printf("PrimecoinMiner() : Rounds total: num=%u primorial=%u block/s=%3.12f\n", nRoundNum, nPrimorialMultiplier, dAverageBlockExpected);
+                        printf("LibrecoinMiner() : Rounds total: num=%u primorial=%u block/s=%3.12f\n", nRoundNum, nPrimorialMultiplier, dAverageBlockExpected);
                     // Store the new value and reset
                     dAverageBlockExpectedPrev = dAverageBlockExpected;
                     nPrimorialMultiplierPrev = nPrimorialMultiplier;
@@ -4896,19 +4896,19 @@ void static BitcoinMiner(CWallet *pwallet)
                 {
                     double dPrimeProbabilityBegin = EstimateCandidatePrimeProbability(nPrimorialMultiplier, 0, nMiningProtocol);
                     double dPrimeProbabilityEnd = EstimateCandidatePrimeProbability(nPrimorialMultiplier, nTargetLength - 1, nMiningProtocol);
-                    printf("PrimecoinMiner() : Round primorial=%u tests=%u primes=%u time=%uus pprob=%1.6f pprob2=%1.6f pprobextra=%1.6f tochain=%6.3fd expect=%3.12f expectblock=%3.12f\n", nPrimorialMultiplier, nRoundTests, nRoundPrimesHit, (unsigned int) nRoundTime, dPrimeProbabilityBegin, dPrimeProbabilityEnd, dExtraPrimeProbability, ((dTimeExpected/1000000.0))/86400.0, dRoundChainExpected, dRoundBlockExpected);
+                    printf("LibrecoinMiner() : Round primorial=%u tests=%u primes=%u time=%uus pprob=%1.6f pprob2=%1.6f pprobextra=%1.6f tochain=%6.3fd expect=%3.12f expectblock=%3.12f\n", nPrimorialMultiplier, nRoundTests, nRoundPrimesHit, (unsigned int) nRoundTime, dPrimeProbabilityBegin, dPrimeProbabilityEnd, dExtraPrimeProbability, ((dTimeExpected/1000000.0))/86400.0, dRoundChainExpected, dRoundBlockExpected);
                 }
 
-                // Primecoin: primorial always needs to be incremented if only 0 primes were found
+                // Librecoin: primorial always needs to be incremented if only 0 primes were found
                 if (nRoundPrimesHit == 0)
                     nAdjustPrimorial = 1;
 
-                // Primecoin: reset sieve+primality round timer
+                // Librecoin: reset sieve+primality round timer
                 nPrimeTimerStart = GetTimeMicros();
                 nRoundTests = 0;
                 nRoundPrimesHit = 0;
 
-                // Primecoin: update time and nonce
+                // Librecoin: update time and nonce
                 pblock->nTime = max(pblock->nTime, (unsigned int) GetAdjustedTime());
                 loop {
                     pblock->nNonce++;
@@ -4922,12 +4922,12 @@ void static BitcoinMiner(CWallet *pwallet)
 
                     mpz_set_uint256(mpzHash.get_mpz_t(), phash);
                     if (nMiningProtocol >= 2) {
-                        // Primecoin: Mining protocol v0.2
+                        // Librecoin: Mining protocol v0.2
                         // Try to find hash that is probable prime
                         if (!ProbablePrimalityTestWithTrialDivision(mpzHash, 1000, testParams))
                             continue;
                     } else {
-                        // Primecoin: Check that the hash is divisible by the fixed primorial
+                        // Librecoin: Check that the hash is divisible by the fixed primorial
                         if (!mpz_divisible_ui_p(mpzHash.get_mpz_t(), nHashFactor))
                             continue;
                     }
@@ -4938,17 +4938,17 @@ void static BitcoinMiner(CWallet *pwallet)
                 if (pblock->nNonce >= 0xffff0000)
                     break;
 
-                // Primecoin: dynamic adjustment of primorial multiplier
+                // Librecoin: dynamic adjustment of primorial multiplier
                 if (nFixedPrimorial == 0 && nAdjustPrimorial != 0) {
                     if (nAdjustPrimorial > 0)
                     {
                         if (!PrimeTableGetNextPrime(nPrimorialMultiplier))
-                            error("PrimecoinMiner() : primorial increment overflow");
+                            error("LibrecoinMiner() : primorial increment overflow");
                     }
                     else if (nPrimorialMultiplier > nPrimorialHashFactor)
                     {
                         if (!PrimeTableGetPreviousPrime(nPrimorialMultiplier))
-                            error("PrimecoinMiner() : primorial decrement overflow");
+                            error("LibrecoinMiner() : primorial decrement overflow");
                     }
                     Primorial(nPrimorialMultiplier, mpzPrimorial);
                     nAdjustPrimorial = 0;
@@ -4959,7 +4959,7 @@ void static BitcoinMiner(CWallet *pwallet)
     } }
     catch (boost::thread_interrupted)
     {
-        printf("PrimecoinMiner terminated\n");
+        printf("LibrecoinMiner terminated\n");
         // Print statistics
         if (fPrintStatsAtEnd)
         {

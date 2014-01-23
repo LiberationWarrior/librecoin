@@ -16,7 +16,7 @@ using namespace std;
 
 void ScriptPubKeyToJSON(const CScript& scriptPubKey, Object& out);
 
-// Primecoin: get prime difficulty value (chain length)
+// Librecoin: get prime difficulty value (chain length)
 double GetDifficulty(const CBlockIndex* blockindex)
 {
     // Floating point number that is approximate log scale of prime target,
@@ -218,13 +218,13 @@ Value gettxout(const Array& params, bool fHelp)
     return ret;
 }
 
-// Primecoin: list prime chain records within primecoin network
+// Librecoin: list prime chain records within librecoin network
 Value listprimerecords(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
             "listprimerecords <primechain length> [primechain type]\n"
-            "Returns the list of record prime chains in primecoin network.\n"
+            "Returns the list of record prime chains in librecoin network.\n"
             "<primechain length> is integer like 10, 11, 12 etc.\n"
             "[primechain type] is optional type, among 1CC, 2CC and TWN");
 
@@ -260,7 +260,7 @@ Value listprimerecords(const Array& params, bool fHelp)
 
         if (bnPrimeChainOrigin > bnPrimeRecord)
         {
-            bnPrimeRecord = bnPrimeChainOrigin; // new record in primecoin
+            bnPrimeRecord = bnPrimeChainOrigin; // new record in librecoin
             Object entry;
             entry.push_back(Pair("time", DateTimeStrFormat("%Y-%m-%d %H:%M:%S UTC", pindex->GetBlockTime()).c_str()));
             entry.push_back(Pair("epoch", (boost::int64_t) pindex->GetBlockTime()));
@@ -279,13 +279,13 @@ Value listprimerecords(const Array& params, bool fHelp)
     return ret;
 }
 
-// Primecoin: list top prime chain within primecoin network
+// Librecoin: list top prime chain within librecoin network
 Value listtopprimes(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
             "listtopprimes <primechain length> [primechain type]\n"
-            "Returns the list of top prime chains in primecoin network.\n"
+            "Returns the list of top prime chains in librecoin network.\n"
             "<primechain length> is integer like 10, 11, 12 etc.\n"
             "[primechain type] is optional type, among 1CC, 2CC and TWN");
 

@@ -3,8 +3,8 @@
 // Copyright (c) 2014 Librecoin developers
 // Distributed under the GPLv3 software license, see the accompanying
 // file COPYING or https://www.gnu.org/licenses/gpl-3.0.html.
-#ifndef PRIMECOIN_CHECKPOINTSYNC_H
-#define  PRIMECOIN_CHECKPOINTSYNC_H
+#ifndef LIBRECOIN_CHECKPOINTSYNC_H
+#define  LIBRECOIN_CHECKPOINTSYNC_H
 
 #include "net.h"
 #include "util.h"

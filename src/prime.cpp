@@ -7,7 +7,7 @@
 #include <climits>
 
 /**********************/
-/* PRIMECOIN PROTOCOL */
+/* LIBRECOIN PROTOCOL */
 /**********************/
 
 // Prime Table
@@ -596,7 +596,7 @@ unsigned int EstimateWorkTransition(unsigned int nPrevWorkTransition, unsigned i
 }
 
 /********************/
-/* PRIMECOIN MINING */
+/* LIBRECOIN MINING */
 /********************/
 
 // Check Fermat probable primality test (2-PRP): 2 ** (n-1) = 1 (mod n)

@@ -17,16 +17,16 @@
 #include <string>
 #include "uint256.h"
 
-#define PRIMECOIN_PORT   9911
-#define RPC_PORT         9912
-#define TESTNET_PORT     9913
-#define TESTNET_RPC_PORT 9914
+#define LIBRECOIN_PORT   35773
+#define RPC_PORT         35774
+#define TESTNET_PORT     35775
+#define TESTNET_RPC_PORT 35776
 
 extern bool fTestNet;
 
 static inline unsigned short GetDefaultPort(const bool testnet = fTestNet)
 {
-    return testnet ? TESTNET_PORT : PRIMECOIN_PORT;
+    return testnet ? TESTNET_PORT : LIBRECOIN_PORT;
 }
 
 
