@@ -46,6 +46,8 @@ Install necessary dependencies:
     cd librecoin
     sudo apt-get install build-essential m4 libssl-dev libdb++-dev libboost-all-dev libminiupnpc-dev libgmp3-dev
 
+#### Alternative 1: command-line interface
+
 Create librecoind with command-line interface:
 
     cd src
@@ -58,6 +60,8 @@ Run librecoind in librecoin directory:
 
     ./librecoind --daemon
     ./librecoind help
+
+#### Alternative 2: graphical user interface
 
 Create librecoin-qt with graphical user interface:
 
