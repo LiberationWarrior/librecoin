@@ -1483,7 +1483,7 @@ Value validateaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "validateaddress <librecoinaddress>\n"
-            "Return information about <librecoinaddress>.");
+            "Returns information about <librecoinaddress>.");
 
     CBitcoinAddress address(params[0].get_str());
     bool isValid = address.IsValid();
