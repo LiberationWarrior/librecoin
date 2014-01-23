@@ -1,4 +1,4 @@
-Bitcoin-Qt: Qt4 GUI for Bitcoin
+Librecoin-Qt: Qt4 GUI for Librecoin
 ===============================
 
 Build instructions
@@ -35,9 +35,9 @@ then execute the following:
     qmake
     make
 
-Alternatively, install `Qt Creator`_ and open the `bitcoin-qt.pro` file.
+Alternatively, install `Qt Creator`_ and open the `librecoin-qt.pro` file.
 
-An executable named `bitcoin-qt` will be built.
+An executable named `librecoin-qt` will be built.
 
 .. _`Qt Creator`: http://qt-project.org/downloads/
 
@@ -62,11 +62,11 @@ Mac OS X
 	brew update
 	brew install boost miniupnpc openssl berkeley-db4
 
-- If using HomeBrew,  edit `bitcoin-qt.pro` to account for library location differences. There's a diff in `contrib/homebrew/bitcoin-qt-pro.patch` that shows what you need to change, or you can just patch by doing
+- If using HomeBrew,  edit `librecoin-qt.pro` to account for library location differences. There's a diff in `contrib/homebrew/librecoin-qt-pro.patch` that shows what you need to change, or you can just patch by doing
 
-        patch -p1 < contrib/homebrew/bitcoin.qt.pro.patch
+        patch -p1 < contrib/homebrew/librecoin.qt.pro.patch
 
-- Open the bitcoin-qt.pro file in Qt Creator and build as normal (cmd-B)
+- Open the librecoin-qt.pro file in Qt Creator and build as normal (cmd-B)
 
 .. _`Qt Mac OS X SDK`: http://qt-project.org/downloads/
 .. _`MacPorts`: http://www.macports.org/install.php
@@ -127,9 +127,9 @@ flag to qmake to control this:
 Berkely DB version warning
 ==========================
 
-A warning for people using the *static binary* version of Bitcoin on a Linux/UNIX-ish system (tl;dr: **Berkely DB databases are not forward compatible**).
+A warning for people using the *static binary* version of Librecoin on a Linux/UNIX-ish system (tl;dr: **Berkely DB databases are not forward compatible**).
 
-The static binary version of Bitcoin is linked against libdb4.8 (see also `this Debian issue`_).
+The static binary version of Librecoin is linked against libdb4.8 (see also `this Debian issue`_).
 
 Now the nasty thing is that databases from 5.X are not compatible with 4.X.
 

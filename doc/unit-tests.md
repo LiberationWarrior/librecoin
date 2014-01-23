@@ -27,7 +27,7 @@ use the Qt unit-testing framework.
 
 To compile and run the tests:
 
-	qmake bitcoin-qt.pro BITCOIN_QT_TEST=1
+	qmake librecoin-qt.pro BITCOIN_QT_TEST=1
 	make
 	./bitcoin-qt_test
 

@@ -9,7 +9,7 @@ Release Process
 ###update (commit) version in sources
 
 
-	bitcoin-qt.pro
+	librecoin-qt.pro
 	contrib/verifysfbinaries/verify.sh
 	doc/README*
 	share/setup.nsi
