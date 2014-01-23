@@ -1,6 +1,6 @@
 librecoin-qt usr/bin
 share/pixmaps/librecoin32.xpm usr/share/pixmaps
 share/pixmaps/librecoin16.xpm usr/share/pixmaps
-share/pixmaps/librecoin128.png usr/share/pixmaps
+share/pixmaps/librecoin128.xpm usr/share/pixmaps
 debian/librecoin-qt.desktop usr/share/applications
 debian/librecoin-qt.protocol usr/share/kde4/services/
