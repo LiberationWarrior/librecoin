@@ -218,13 +218,13 @@ Value gettxout(const Array& params, bool fHelp)
     return ret;
 }
 
-// Librecoin: list prime chain records within librecoin network
+// Librecoin: list prime chain records within Librecoin network
 Value listprimerecords(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
             "listprimerecords <primechain length> [primechain type]\n"
-            "Returns the list of record prime chains in librecoin network.\n"
+            "Returns the list of record prime chains in Librecoin network.\n"
             "<primechain length> is integer like 10, 11, 12 etc.\n"
             "[primechain type] is optional type, among 1CC, 2CC and TWN");
 
@@ -279,13 +279,13 @@ Value listprimerecords(const Array& params, bool fHelp)
     return ret;
 }
 
-// Librecoin: list top prime chain within librecoin network
+// Librecoin: list top prime chain within Librecoin network
 Value listtopprimes(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
             "listtopprimes <primechain length> [primechain type]\n"
-            "Returns the list of top prime chains in librecoin network.\n"
+            "Returns the list of top prime chains in Librecoin network.\n"
             "<primechain length> is integer like 10, 11, 12 etc.\n"
             "[primechain type] is optional type, among 1CC, 2CC and TWN");
 
