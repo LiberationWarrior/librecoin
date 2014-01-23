@@ -306,7 +306,7 @@ unsigned int TargetFromInt(unsigned int nLength)
 bool TargetGetMint(unsigned int nBits, uint64& nMint)
 {
     nMint = 0;
-    static uint64 nMintLimit = 999llu * COIN;
+    static uint64 nMintLimit = 549llu * COIN;
     CBigNum bnMint = nMintLimit;
     if (TargetGetLength(nBits) < nTargetMinLength)
         return error("TargetGetMint() : length below minimum required, nBits=%08x", nBits);
