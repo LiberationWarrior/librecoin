@@ -1,102 +1,70 @@
-Primecoin High Performance Version
-==================================
+Librecoin information
+=====================
 
-This is the high performance version of Sunny King's Primecoin tree.
-
-Features:
- * Extended sieve algorithm
- * Cache-friendly segmented sieve
- * Adjustable sieve parameters
- * Mining threads use GMP for faster bignum arithmetic
-
-Donations are welcome if you want to support my work.
-
-BTC: 1EaHwHBWeoJtSM2jEdx9Su1NcKvdXbsqxX
-LTC: LPD1zDChmqcqKGHFHuLX2JWMMEC5jD5J4j
-XPM: AJHjbkVzHhHugd5bpKDtddVDfhtEB8jQZ4
-
-Primecoin integration/staging tree
-==================================
-
-http://primecoin.org
-
-Copyright (c) 2013 Primecoin Developers
-
-Copyright (c) 2009-2013 Bitcoin Developers
-
-Copyright (c) 2011-2013 PPCoin Developers
-
-What is Primecoin?
+What is Librecoin?
 ------------------
 
-Primecoin is an experimental cryptocurrency that introduces the first
-scientific computing proof-of-work to cryptocurrency technology. Primecoin's
-proof-of-work is an innovative design based on searching for prime number
-chains, providing potential scientific value in addition to minting and
-security for the network. Similar to Bitcoin, Primecoin enables instant payments
-to anyone, anywhere in the world. It also uses peer-to-peer technology to 
-operate with no central authority: managing transactions and issuing money are 
-carried out collectively by the network. Primecoin is also the name of the open
+Librecoin is the first scientific cryptocurrency that is released under the GNU
+General Public License. Librecoin uses Primecoin's proof-of-work, which
+provides potential scientific value in addition to minting and security for the
+network. Similar to Bitcoin and Primecoin, Librecoin enables instant payments
+to anyone, anywhere in the world. It also uses peer-to-peer technology to
+operate with no central authority: managing transactions and issuing money are
+carried out collectively by the network. Librecoin is also the name of the open
 source software which enables the use of this currency.
-
-For more information, as well as an immediately useable, binary version of
-the Primecoin client sofware, see http://primecoin.org.
 
 License
 -------
 
-Primecoin is released under conditional MIT license. See  COPYING` for more
+Librecoin is released under the GPLv3 (version 3 of the GNU General Public
+License). See COPYING and https://www.gnu.org/licenses/gpl-3.0.html for more
 information.
 
-Development process
--------------------
+Installation
+------------
 
-Developers work in their own trees, then submit pull requests when they think
-their feature or bug fix is ready.
+Clone this repository:
 
-If it is a simple/trivial/non-controversial change, then one of the Bitcoin
-development team members simply pulls it.
+    sudo apt-get install git
+    git clone https://github.com/LiberationWarrior/librecoin.git
 
-If it is a *more complicated or potentially controversial* change, then the patch
-submitter will be asked to start a discussion (if they haven't already) on the
-ppcoin/primecoin forum (http://ppcointalk.org).
+Create a config file:
 
-The patch will be accepted if there is broad consensus that it is a good thing.
-Developers should expect to rework and resubmit patches if the code doesn't
-match the project's coding conventions (see `doc/coding.md`) or are
-controversial.
+    mkdir -p .librecoin
+    echo 'server=1
+    rpcuser=librecoinrpc
+    rpcpassword=RANDOM_PASSWORD
+    rpcallowip=127.0.0.1
+    gen=1
+    sievesize=1000000
+    sievepercentage=10
+    sieveextensions=9' > .librecoin/librecoin.conf
+    sed -i -e "s/RANDOM_PASSWORD/`< /dev/urandom tr -cd '[:alnum:]' | head -c32`/" .librecoin/librecoin.conf
 
-The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/primecoin/primecoin/tags) are
-created regularly to indicate new official, stable release versions of
-Primecoin.
+Install necessary dependencies:
 
-Testing
--------
+    cd librecoin
+    sudo apt-get install build-essential m4 libssl-dev libdb++-dev libboost-all-dev libminiupnpc-dev libgmp3-dev
 
-Testing and code review is the bottleneck for development; we get more pull
-requests than we can review and test. Please be patient and help out, and
-remember this is a security-critical project where any mistake might cost people
-lots of money.
+Create librecoind with command-line interface:
 
-### Automated Testing
+    cd src
+    make -f makefile.unix
+    strip librecoind
+    mv librecoind ..
+    cd ..
 
-Developers are strongly encouraged to write unit tests for new code, and to
-submit new unit tests for old code.
+Run librecoind in librecoin directory:
 
-Unit tests for the core code are in `src/test/`. To compile and run them:
+    ./librecoind --daemon
+    ./librecoind help
 
-    cd src; make -f makefile.unix test
+Create librecoin-qt with graphical user interface:
 
-Unit tests for the GUI code are in `src/qt/test/`. To compile and run them:
+    sudo apt-get install qt4-qmake libqt4-dev
+    qmake-qt4 USE_UPNP=1 USE_DBUS=1 USE_QRCODE=1 -o Makefile librecoin-qt.pro
+    make
 
-    qmake BITCOIN_QT_TEST=1 -o Makefile.test bitcoin-qt.pro
-    make -f Makefile.test
-    ./bitcoin-qt_test
+Run librecoin-qt in librecoin directory:
 
-### Manual Quality Assurance (QA) Testing
-
-Large changes should have a test plan, and should be tested by somebody other
-than the developer who wrote the code.
-
-See https://github.com/bitcoin/QA/ for how to create a test plan.
+    ./librecoin-qt
