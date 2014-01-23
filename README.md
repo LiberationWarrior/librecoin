@@ -20,8 +20,8 @@ Librecoin is released under the GPLv3 (version 3 of the GNU General Public
 License). See COPYING and https://www.gnu.org/licenses/gpl-3.0.html for more
 information.
 
-Installation
-------------
+Installation on Debian and derivatives
+--------------------------------------
 
 Clone this repository:
 
