@@ -37,7 +37,7 @@ Create a config file:
     rpcallowip=127.0.0.1
     gen=1
     sievesize=1000000
-    sievepercentage=10
+    sievefilterprimes=7849
     sieveextensions=9' > .librecoin/librecoin.conf
     sed -i -e "s/RANDOM_PASSWORD/`< /dev/urandom tr -cd '[:alnum:]' | head -c32`/" .librecoin/librecoin.conf
 
