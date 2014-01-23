@@ -127,7 +127,7 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
     // Convert bitcoin:// to bitcoin:
     //
-    //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because librecoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
     if(uri.startsWith("librecoin://"))
     {
