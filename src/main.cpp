@@ -1085,7 +1085,7 @@ int64 static GetBlockValue(int nBits, int64 nFees)
     return ((int64)nSubsidy) + nFees;
 }
 
-static const int64 nTargetTimespan = 7 * 24 * 60 * 60 * 2; // one week
+static const int64 nTargetTimespan = 7 * 24 * 60 * 60; // one week
 static const int64 nTargetSpacing = 30; // 30 seconds block spacing
 
 //
