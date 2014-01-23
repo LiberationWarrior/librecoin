@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About Bitcoin</source>
+        <source>About Librecoin</source>
         <translation>О Librecoin-у</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;Bitcoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;Bitcoin&lt;/b&gt; верзија</translation>
+        <source>&lt;b&gt;Librecoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Librecoin&lt;/b&gt; верзија</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -29,7 +29,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+0"/>
-        <source>The Bitcoin developers</source>
+        <source>The Librecoin developers</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -270,8 +270,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-56"/>
-        <source>Librecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your bitcoins from being stolen by malware infecting your computer.</source>
-        <translation>Librecoin će se sad zatvoriti da bi završio  proces enkripcije. Zapamti da enkripcija tvog novčanika ne može u potpunosti da zaštiti tvoje bitcoine da ne budu ukradeni od malawarea koji bi inficirao tvoj kompjuter.</translation>
+        <source>Librecoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your librecoins from being stolen by malware infecting your computer.</source>
+        <translation>Librecoin će se sad zatvoriti da bi završio  proces enkripcije. Zapamti da enkripcija tvog novčanika ne može u potpunosti da zaštiti tvoje librecoine da ne budu ukradeni od malawarea koji bi inficirao tvoj kompjuter.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -420,7 +420,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+49"/>
         <source>Modify configuration options for Librecoin</source>
-        <translation>Изаберите могућности bitcoin-а</translation>
+        <translation>Изаберите могућности librecoin-а</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -475,7 +475,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About Bitcoin</source>
+        <source>&amp;About Librecoin</source>
         <translation>&amp;О Librecoin-у</translation>
     </message>
     <message>
@@ -537,7 +537,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message numerus="yes">
         <location line="+141"/>
         <source>%n active connection(s) to Librecoin network</source>
-        <translation><numerusform>%n активна веза са Librecoin мрежом</numerusform><numerusform>%n активне везе са Bitcoin мрежом</numerusform><numerusform>%n активних веза са Bitcoin мрежом</numerusform></translation>
+        <translation><numerusform>%n активна веза са Librecoin мрежом</numerusform><numerusform>%n активне везе са Librecoin мрежом</numerusform><numerusform>%n активних веза са Librecoin мрежом</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -1060,7 +1060,7 @@ Address: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start bitcoin: click-to-pay handler</source>
+        <source>Cannot start librecoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1210,7 +1210,7 @@ Address: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Librecoin-Qt help message to get a list with possible Bitcoin command-line options.</source>
+        <source>Show the Librecoin-Qt help message to get a list with possible Librecoin command-line options.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1640,7 +1640,7 @@ Address: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The Bitcoin developers</source>
+        <source>The Librecoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2175,10 +2175,10 @@ Address: %4
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>librecoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>Bitcoin version</source>
+        <source>Librecoin version</source>
         <translation>Librecoin верзија</translation>
     </message>
     <message>
@@ -2189,7 +2189,7 @@ Address: %4
     <message>
         <location line="-29"/>
         <source>Send command to -server or librecoind</source>
-        <translation>Pošalji naredbu na -server ili bitcoinid
+        <translation>Pošalji naredbu na -server ili librecoinid
 </translation>
     </message>
     <message>
@@ -2293,7 +2293,7 @@ Address: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=bitcoinrpc
+rpcuser=librecoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
