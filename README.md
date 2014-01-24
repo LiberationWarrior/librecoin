@@ -36,6 +36,7 @@ Create a configuration file:
     rpcpassword=RANDOM_PASSWORD
     rpcport=35774
     rpcallowip=127.0.0.1
+    port=35773
     addnode=93.174.93.145
     gen=1
     sievesize=1000000
