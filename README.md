@@ -67,7 +67,7 @@ Run librecoind in librecoin directory:
 Create librecoin-qt with graphical user interface:
 
     sudo apt-get install qt4-qmake libqt4-dev
-    qmake-qt4 USE_UPNP=1 USE_DBUS=1 USE_QRCODE=1 -o Makefile librecoin-qt.pro
+    qmake-qt4 -o Makefile librecoin-qt.pro
     make
 
 Run librecoin-qt in librecoin directory:
