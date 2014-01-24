@@ -2719,7 +2719,7 @@ bool LoadBlockIndex()
         pchMessageStart[2] = 0xde;
         pchMessageStart[3] = 0xc3;
         hashGenesisBlock = hashGenesisBlockTestNet;
-        nTargetInitialLength = 4; // librecoin: initial prime chain target
+        nTargetInitialLength = 3; // librecoin: initial prime chain target
         nTargetMinLength = 2;     // librecoin: minimum prime chain target
     }
 
@@ -2769,7 +2769,7 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nTime    = 1390565360;
-        block.nBits    = TargetFromInt(5);
+        block.nBits    = TargetFromInt(4);
         block.nNonce   = 383;
         block.bnPrimeChainMultiplier = ((uint64) 532547) * (uint64)(2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23);
 
