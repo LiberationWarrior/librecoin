@@ -1,13 +1,13 @@
-# bash programmable completion for bitcoind(1)
+# bash programmable completion for librecoind(1)
 # Copyright (c) 2012 Christian von Roques <roques@mti.ag>
 # Copyright (c) 2014 Librecoin developers
 # Distributed under the GPLv3 software license, see the accompanying
 # file COPYING or https://www.gnu.org/licenses/gpl-3.0.html.
 
-have bitcoind && {
+have librecoind && {
 
-# call $bitcoind for RPC
-_bitcoin_rpc() {
+# call $librecoind for RPC
+_librecoin_rpc() {
     # determine already specified args necessary for RPC
     local rpcargs=()
     for i in ${COMP_LINE}; do
@@ -17,23 +17,23 @@ _bitcoin_rpc() {
                 ;;
         esac
     done
-    $bitcoind "${rpcargs[@]}" "$@"
+    $librecoind "${rpcargs[@]}" "$@"
 }
 
-# Add bitcoin accounts to COMPREPLY
-_bitcoin_accounts() {
+# Add Librecoin accounts to COMPREPLY
+_librecoin_accounts() {
     local accounts
-    accounts=$(_bitcoin_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
+    accounts=$(_librecoin_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "$accounts" -- "$cur" ) )
 }
 
-_bitcoind() {
+_librecoind() {
     local cur prev words=() cword
-    local bitcoind
+    local librecoind
 
-    # save and use original argument to invoke bitcoind
-    # bitcoind might not be in $PATH
-    bitcoind="$1"
+    # save and use original argument to invoke librecoind
+    # librecoind might not be in $PATH
+    librecoind="$1"
 
     COMPREPLY=()
     _get_comp_words_by_ref -n = cur prev words cword
@@ -45,7 +45,7 @@ _bitcoind() {
                 return 0
                 ;;
             move|setaccount)
-                _bitcoin_accounts
+                _librecoin_accounts
                 return 0
                 ;;
         esac
@@ -61,7 +61,7 @@ _bitcoind() {
             return 0
             ;;
         getaccountaddress|getaddressesbyaccount|getbalance|getnewaddress|getreceivedbyaccount|listtransactions|move|sendfrom|sendmany)
-            _bitcoin_accounts
+            _librecoin_accounts
             return 0
             ;;
     esac
@@ -85,12 +85,12 @@ _bitcoind() {
 
             # only parse --help if senseful
             if [[ -z "$cur" || "$cur" =~ ^- ]]; then
-                helpopts=$($bitcoind --help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
+                helpopts=$($librecoind --help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
             fi
 
             # only parse help if senseful
             if [[ -z "$cur" || "$cur" =~ ^[a-z] ]]; then
-                commands=$(_bitcoin_rpc help 2>/dev/null | awk '{ print $1; }')
+                commands=$(_librecoin_rpc help 2>/dev/null | awk '{ print $1; }')
             fi
 
             COMPREPLY=( $( compgen -W "$helpopts $commands" -- "$cur" ) )
@@ -104,7 +104,7 @@ _bitcoind() {
     esac
 }
 
-complete -F _bitcoind bitcoind
+complete -F _librecoind librecoind
 }
 
 # Local variables:
