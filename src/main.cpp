@@ -626,11 +626,11 @@ int64 CTransaction::GetMinFee(unsigned int nBlockSize, bool fAllowFree,
 
     // This code can be removed after enough miners have upgraded to version 0.9.
     // Until then, be safe when sending and require a fee if any output
-    // is less than CENT:
+    // is less than 100000 units:
     if (nMinFee < nBaseFee && mode == GMF_SEND)
     {
         BOOST_FOREACH(const CTxOut& txout, vout)
-            if (txout.nValue < CENT)
+            if (txout.nValue < 100000)
                 nMinFee = nBaseFee;
     }
 
