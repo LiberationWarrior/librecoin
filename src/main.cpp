@@ -2769,15 +2769,15 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nTime    = 1390565360;
-        block.nBits    = TargetFromInt(6);
+        block.nBits    = TargetFromInt(5);
         block.nNonce   = 383;
-        block.bnPrimeChainMultiplier = ((uint64) 532541) * (uint64)(2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23);
+        block.bnPrimeChainMultiplier = ((uint64) 532547) * (uint64)(2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23);
 
         if (fTestNet)
         {
             block.nTime    = 1390565350;
-            block.nNonce   = 1513;
-            block.bnPrimeChainMultiplier = ((uint64) 585641) * (uint64)(2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23);
+            block.nNonce   = 0;
+            block.bnPrimeChainMultiplier = ((uint64) 585647) * (uint64)(2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23);
         }
 
         //// debug print
