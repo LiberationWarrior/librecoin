@@ -228,8 +228,8 @@ void PrimorialAt(mpz_class& bn, mpz_class& mpzPrimorial)
 // Proof-of-work Target (prime chain target):
 //   format - 32 bit, 8 length bits, 24 fractional length bits
 
-unsigned int nTargetInitialLength = 7; // initial chain length target
-unsigned int nTargetMinLength = 6;     // minimum chain length target
+unsigned int nTargetInitialLength = 4; // initial chain length target
+unsigned int nTargetMinLength = 3;     // minimum chain length target
 
 unsigned int TargetGetLimit()
 {
