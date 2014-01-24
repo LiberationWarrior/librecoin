@@ -2775,7 +2775,7 @@ bool InitBlockIndex() {
 
         if (fTestNet)
         {
-            block.nTime    = 1390565350;
+            block.nTime    = 1390588070;
             block.nNonce   = 0;
             block.bnPrimeChainMultiplier = ((uint64) 585647) * (uint64)(2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23);
         }
