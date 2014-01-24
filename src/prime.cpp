@@ -312,7 +312,7 @@ bool TargetGetMint(unsigned int nBits, uint64& nMint)
         return error("TargetGetMint() : length below minimum required, nBits=%08x", nBits);
     bnMint = (bnMint << nFractionalBits) / nBits;
     bnMint = (bnMint << nFractionalBits) / nBits;
-    bnMint = (bnMint / CENT) * CENT;  // mint value rounded to cent
+    bnMint = (bnMint / 100) * 100;  // mint value rounded to 100 units
     nMint = bnMint.getuint256().Get64();
     if (nMint > nMintLimit)
     {
