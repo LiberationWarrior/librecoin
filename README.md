@@ -35,6 +35,7 @@ Create a config file:
     rpcuser=librecoinrpc
     rpcpassword=RANDOM_PASSWORD
     rpcallowip=127.0.0.1
+    addnode=93.174.93.145
     gen=1
     sievesize=1000000
     sievefilterprimes=7849
