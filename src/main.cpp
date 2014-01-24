@@ -2714,12 +2714,12 @@ bool LoadBlockIndex()
 {
     if (fTestNet)
     {
-        pchMessageStart[0] = 0xfb;
+        pchMessageStart[0] = 0xd3;
         pchMessageStart[1] = 0xfe;
-        pchMessageStart[2] = 0xcb;
+        pchMessageStart[2] = 0xde;
         pchMessageStart[3] = 0xc3;
         hashGenesisBlock = hashGenesisBlockTestNet;
-        nTargetInitialLength = 5; // librecoin: initial prime chain target
+        nTargetInitialLength = 4; // librecoin: initial prime chain target
         nTargetMinLength = 2;     // librecoin: minimum prime chain target
     }
 
@@ -3085,7 +3085,7 @@ bool static AlreadyHave(const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xe4, 0xe7, 0xe5, 0xe7 };
+unsigned char pchMessageStart[4] = { 0xe4, 0xdd, 0xe5, 0xda };
 
 
 void static ProcessGetData(CNode* pfrom)
