@@ -28,12 +28,13 @@ Clone this repository:
     sudo apt-get install git
     git clone https://github.com/LiberationWarrior/librecoin.git
 
-Create a config file:
+Create a configuration file:
 
     mkdir -p .librecoin
     echo 'server=1
     rpcuser=librecoinrpc
     rpcpassword=RANDOM_PASSWORD
+    rpcport=35774
     rpcallowip=127.0.0.1
     addnode=93.174.93.145
     gen=1
