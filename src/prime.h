@@ -41,8 +41,8 @@ static const CBigNum bnPrimeMax = (bnOne << 2000) - 1;
 static const CBigNum bnPrimeMin = (bnOne << 255);
 static const mpz_class mpzOne = 1;
 static const mpz_class mpzTwo = 2;
-static const mpz_class mpzPrimeMax = (mpzOne << 2000) - 1;
-static const mpz_class mpzPrimeMin = (mpzOne << 255);
+static const mpz_class mpzPrimeMax = (mpzOne << 3000) - 1;
+static const mpz_class mpzPrimeMin = (mpzOne << 383);
 
 // Mining statistics
 static const unsigned int nMaxChainLength = 24;
