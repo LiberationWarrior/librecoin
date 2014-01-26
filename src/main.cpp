@@ -4121,7 +4121,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// BitcoinMiner
+// LibrecoinMiner
 //
 
 int static FormatHashBlocks(void* pbuffer, unsigned int len)
@@ -4571,7 +4571,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     return true;
 }
 
-void static BitcoinMiner(CWallet *pwallet)
+void static LibrecoinMiner(CWallet *pwallet)
 {
     static CCriticalSection cs;
     static bool fTimerStarted = false;
@@ -4629,7 +4629,7 @@ void static BitcoinMiner(CWallet *pwallet)
     nExtraNonce = ns_now.count() % nExtraNonceModulo;
 
     // Print the chosen extra nonce for debugging
-    printf("BitcoinMiner() : Setting initial extra nonce to %u\n", nExtraNonce);
+    printf("LibrecoinMiner() : Setting initial extra nonce to %u\n", nExtraNonce);
 
     try { loop {
         while (vNodes.empty())
@@ -4971,7 +4971,7 @@ void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
 
     minerThreads = new boost::thread_group();
     for (int i = 0; i < nThreads; i++)
-        minerThreads->create_thread(boost::bind(&BitcoinMiner, pwallet));
+        minerThreads->create_thread(boost::bind(&LibrecoinMiner, pwallet));
 }
 
 // Amount compression:
