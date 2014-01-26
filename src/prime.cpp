@@ -1242,13 +1242,13 @@ double EstimateCandidatePrimeProbability(unsigned int nPrimorialMultiplier, unsi
     // h * q# / r# * s is prime with probability 1/log(h * q# / r# * s),
     //   (prime number theorem)
     //   here s ~ max sieve size / 2,
-    //   h ~ 2^255 * 1.5,
+    //   h ~ 2^383 * 1.5,
     //   r = 7 (primorial multiplier embedded in the hash)
     // Euler product to p ~ 1.781072 * log(p)   (Mertens theorem)
     // If sieve is weaved up to p, a number in a candidate chain is a prime
     // with probability
     //     (1/log(h * q# / r# * s)) / (1/(1.781072 * log(p)))
-    //   = 1.781072 * log(p) / (255 * log(2) + log(1.5) + log(q# / r#) + log(s))
+    //   = 1.781072 * log(p) / (383 * log(2) + log(1.5) + log(q# / r#) + log(s))
     //
     // This model assumes that the numbers on a chain being primes are
     // statistically independent after running the sieve, which might not be
@@ -1274,7 +1274,7 @@ double EstimateCandidatePrimeProbability(unsigned int nPrimorialMultiplier, unsi
     }
     const double dExtendedSieveAverageMultiplier = dExtendedSieveWeightedSum / dExtendedSieveCandidates;
 
-    return (1.781072 * log((double)std::max(1u, nSieveWeaveOptimalPrime)) / (255.0 * dLogTwo + dLogOneAndHalf + log(dFixedMultiplier) + log(nAverageCandidateMultiplier) + dLogTwo * nChainPrimeNum + log(dExtendedSieveAverageMultiplier)));
+    return (1.781072 * log((double)std::max(1u, nSieveWeaveOptimalPrime)) / (383.0 * dLogTwo + dLogOneAndHalf + log(dFixedMultiplier) + log(nAverageCandidateMultiplier) + dLogTwo * nChainPrimeNum + log(dExtendedSieveAverageMultiplier)));
 }
 
 // Esimate the prime probablity of numbers that haven't been sieved
@@ -1304,5 +1304,5 @@ double EstimateNormalPrimeProbability(unsigned int nPrimorialMultiplier, unsigne
     for (unsigned int i = 0; vPrimes[i] <= nPrimorialMultiplier; i++)
         dPrimorialBoost *= (double)vPrimes[i] / (vPrimes[i] - 1);
 
-    return (dPrimorialBoost / (255.0 * dLogTwo + dLogOneAndHalf + log(dFixedMultiplier) + log(nAverageCandidateMultiplier) + dLogTwo * nChainPrimeNum + log(dExtendedSieveAverageMultiplier)));
+    return (dPrimorialBoost / (383.0 * dLogTwo + dLogOneAndHalf + log(dFixedMultiplier) + log(nAverageCandidateMultiplier) + dLogTwo * nChainPrimeNum + log(dExtendedSieveAverageMultiplier)));
 }
