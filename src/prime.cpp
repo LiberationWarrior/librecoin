@@ -301,7 +301,7 @@ unsigned int TargetFromInt(unsigned int nLength)
 
 // Get mint value from target
 // Librecoin mint rate is determined by target
-//   mint = 999 / (target length ** 2)
+//   mint = 4399 / (target length ** 3)
 // Inflation is controlled via Moore's Law
 bool TargetGetMint(unsigned int nBits, uint64& nMint)
 {
